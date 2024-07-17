@@ -1,8 +1,8 @@
-from typing import Optional, List
-from ...modelclass import modelclass
+from dataclasses import dataclass
+from typing import List, Optional
 
 
-@modelclass
+@dataclass
 class Trade:
     "Trade contains trade data for a specified ticker symbol."
     conditions: Optional[List[int]] = None
@@ -23,7 +23,7 @@ class Trade:
         return Trade(**d)
 
 
-@modelclass
+@dataclass
 class LastTrade:
     "Contains data for the most recent trade for a given ticker symbol."
     ticker: Optional[str] = None
@@ -59,7 +59,7 @@ class LastTrade:
         )
 
 
-@modelclass
+@dataclass
 class CryptoTrade:
     "Contains data for a crypto trade."
     conditions: Optional[List[int]] = None

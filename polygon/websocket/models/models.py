@@ -1,9 +1,10 @@
-from typing import Optional, List, Union, NewType
+from dataclasses import dataclass
+from typing import List, NewType, Optional, Union
+
 from .common import EventType
-from ...modelclass import modelclass
 
 
-@modelclass
+@dataclass
 class EquityAgg:
     """EquityAgg contains aggregate data for either stock tickers, option contracts or index tickers."""
 
@@ -44,7 +45,7 @@ class EquityAgg:
         )
 
 
-@modelclass
+@dataclass
 class CurrencyAgg:
     "CurrencyAgg contains aggregate data for either forex currency pairs or crypto pairs."
     event_type: Optional[Union[str, EventType]] = None
@@ -76,7 +77,7 @@ class CurrencyAgg:
         )
 
 
-@modelclass
+@dataclass
 class EquityTrade:
     "EquityTrade contains trade data for either stock tickers or option contracts."
     event_type: Optional[Union[str, EventType]] = None
@@ -110,7 +111,7 @@ class EquityTrade:
         )
 
 
-@modelclass
+@dataclass
 class CryptoTrade:
     "CryptoTrade contains trade data for a crypto pair."
     event_type: Optional[Union[str, EventType]] = None
@@ -138,7 +139,7 @@ class CryptoTrade:
         )
 
 
-@modelclass
+@dataclass
 class EquityQuote:
     "EquityQuote contains quote data for either stock tickers or option contracts."
     event_type: Optional[Union[str, EventType]] = None
@@ -178,7 +179,7 @@ class EquityQuote:
         )
 
 
-@modelclass
+@dataclass
 class ForexQuote:
     "ForexQuote contains quote data for a forex currency pair."
     event_type: Optional[Union[str, EventType]] = None
@@ -200,7 +201,7 @@ class ForexQuote:
         )
 
 
-@modelclass
+@dataclass
 class CryptoQuote:
     "CryptoQuote contains quote data for a crypto pair."
     event_type: Optional[Union[str, EventType]] = None
@@ -228,7 +229,7 @@ class CryptoQuote:
         )
 
 
-@modelclass
+@dataclass
 class Imbalance:
     "Imbalance contains imbalance event data for a given stock ticker symbol."
     event_type: Optional[Union[str, EventType]] = None
@@ -258,7 +259,7 @@ class Imbalance:
         )
 
 
-@modelclass
+@dataclass
 class LimitUpLimitDown:
     "LimitUpLimitDown contains LULD event data for a given stock ticker symbol."
     event_type: Optional[Union[str, EventType]] = None
@@ -284,7 +285,7 @@ class LimitUpLimitDown:
         )
 
 
-@modelclass
+@dataclass
 class Level2Book:
     "Level2Book contains level 2 book data for a given crypto pair."
     event_type: Optional[Union[str, EventType]] = None
@@ -308,7 +309,7 @@ class Level2Book:
         )
 
 
-@modelclass
+@dataclass
 class IndexValue:
     event_type: Optional[Union[str, EventType]] = None
     value: Optional[float] = None
@@ -325,7 +326,7 @@ class IndexValue:
         )
 
 
-@modelclass
+@dataclass
 class LaunchpadValue:
     event_type: Optional[Union[str, EventType]] = None
     value: Optional[float] = None
@@ -342,7 +343,7 @@ class LaunchpadValue:
         )
 
 
-@modelclass
+@dataclass
 class FairMarketValue:
     event_type: Optional[Union[str, EventType]] = None
     fmv: Optional[float] = None

@@ -1,8 +1,8 @@
+from dataclasses import dataclass
 from typing import Optional
-from ...modelclass import modelclass
 
 
-@modelclass
+@dataclass
 class MarketCurrencies:
     "Contains currency market status data."
     crypto: Optional[str] = None
@@ -13,7 +13,7 @@ class MarketCurrencies:
         return MarketCurrencies(**d)
 
 
-@modelclass
+@dataclass
 class MarketExchanges:
     "Contains exchange market status data."
     nasdaq: Optional[str] = None
@@ -25,7 +25,7 @@ class MarketExchanges:
         return MarketExchanges(**d)
 
 
-@modelclass
+@dataclass
 class MarketIndices:
     "Contains indices market status data."
     s_and_p: Optional[str] = None
@@ -44,7 +44,7 @@ class MarketIndices:
         return MarketIndices(**d)
 
 
-@modelclass
+@dataclass
 class MarketHoliday:
     "MarketHoliday contains data for upcoming market holidays and their open/close times."
     close: Optional[str] = None
@@ -59,7 +59,7 @@ class MarketHoliday:
         return MarketHoliday(**d)
 
 
-@modelclass
+@dataclass
 class MarketStatus:
     "MarketStatus contains data for the current trading status of the exchanges and overall financial markets."
     after_hours: Optional[bool] = None

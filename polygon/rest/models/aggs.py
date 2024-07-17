@@ -1,8 +1,8 @@
+from dataclasses import dataclass
 from typing import Optional
-from ...modelclass import modelclass
 
 
-@modelclass
+@dataclass
 class Agg:
     "Contains aggregate data for a given ticker symbol over a given date range in a custom time window size."
     open: Optional[float] = None
@@ -30,7 +30,7 @@ class Agg:
         )
 
 
-@modelclass
+@dataclass
 class GroupedDailyAgg:
     "Contains daily open, high, low, and close (OHLC) data for a given date."
     ticker: Optional[str] = None
@@ -60,7 +60,7 @@ class GroupedDailyAgg:
         )
 
 
-@modelclass
+@dataclass
 class DailyOpenCloseAgg:
     "Contains data for open, close and afterhours prices of a ticker symbol on a specified date."
     after_hours: Optional[float] = None
@@ -92,7 +92,7 @@ class DailyOpenCloseAgg:
         )
 
 
-@modelclass
+@dataclass
 class PreviousCloseAgg:
     "Contains data for the previous day's open, high, low, and close (OHLC) of the specified stock ticker."
     ticker: Optional[str] = None

@@ -1,8 +1,8 @@
-from typing import Optional, List
-from ...modelclass import modelclass
+from dataclasses import dataclass
+from typing import List, Optional
 
 
-@modelclass
+@dataclass
 class Quote:
     "Quote contains quote data for a specified ticker symbol."
     ask_exchange: Optional[int] = None
@@ -24,7 +24,7 @@ class Quote:
         return Quote(**d)
 
 
-@modelclass
+@dataclass
 class LastQuote:
     "LastQuote contains data for the most recent NBBO (Quote) tick for a given stock."
     ticker: Optional[str] = None
@@ -62,7 +62,7 @@ class LastQuote:
         )
 
 
-@modelclass
+@dataclass
 class ForexQuote:
     "Contains data for a forex quote."
     ask: Optional[float] = None
@@ -75,7 +75,7 @@ class ForexQuote:
         return ForexQuote(**d)
 
 
-@modelclass
+@dataclass
 class LastForexQuote:
     "ForexLastQuote contains data for the last quote tick for a forex currency pair."
     last: Optional[ForexQuote] = None
@@ -89,7 +89,7 @@ class LastForexQuote:
         )
 
 
-@modelclass
+@dataclass
 class RealTimeCurrencyConversion:
     "RealTimeCurrencyConversion contains data for currency conversions using the latest market conversion rates."
     converted: Optional[float] = None

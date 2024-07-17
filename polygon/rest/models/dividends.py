@@ -1,8 +1,8 @@
+from dataclasses import dataclass
 from typing import Optional
-from ...modelclass import modelclass
 
 
-@modelclass
+@dataclass
 class Dividend:
     "Dividend contains data for a historical cash dividend, including the ticker symbol, declaration date, ex-dividend date, record date, pay date, frequency, and amount."
     cash_amount: Optional[float] = None

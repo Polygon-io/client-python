@@ -1,9 +1,8 @@
-from typing import Optional, List
+from dataclasses import dataclass
+from typing import List, Optional
 
-from ...modelclass import modelclass
 
-
-@modelclass
+@dataclass
 class CompanyAddress:
     "Contains address data for a ticker detail."
     address1: Optional[str] = None
@@ -18,7 +17,7 @@ class CompanyAddress:
         return CompanyAddress(**d)
 
 
-@modelclass
+@dataclass
 class Branding:
     "Contains branding data for a ticker detail."
     icon_url: Optional[str] = None
@@ -32,7 +31,7 @@ class Branding:
         return Branding(**d)
 
 
-@modelclass
+@dataclass
 class Publisher:
     "Contains publisher data for ticker news."
     favicon_url: Optional[str] = None
@@ -45,7 +44,7 @@ class Publisher:
         return Publisher(**d)
 
 
-@modelclass
+@dataclass
 class Ticker:
     "Ticker contains data for a specified ticker symbol."
     active: Optional[bool] = None
@@ -71,7 +70,7 @@ class Ticker:
         return Ticker(**d)
 
 
-@modelclass
+@dataclass
 class TickerDetails:
     "TickerDetails contains data for a specified ticker symbol."
     active: Optional[bool] = None
@@ -143,7 +142,7 @@ class TickerDetails:
         )
 
 
-@modelclass
+@dataclass
 class TickerNews:
     "TickerDetails contains data for news articles relating to a stock ticker symbol."
     amp_url: Optional[str] = None
@@ -177,7 +176,7 @@ class TickerNews:
         )
 
 
-@modelclass
+@dataclass
 class TickerTypes:
     "TickerTypes contains data for ticker types."
     asset_class: Optional[str] = None
@@ -190,7 +189,7 @@ class TickerTypes:
         return TickerTypes(**d)
 
 
-@modelclass
+@dataclass
 class RelatedCompany:
     """
     Get a list of tickers related to the queried ticker based on News and Returns data.
@@ -205,7 +204,7 @@ class RelatedCompany:
         )
 
 
-@modelclass
+@dataclass
 class TickerChange:
     ticker: str
 
@@ -214,7 +213,7 @@ class TickerChange:
         return TickerChange(**d)
 
 
-@modelclass
+@dataclass
 class TickerChangeEvent:
     type: str
     date: str
@@ -225,7 +224,7 @@ class TickerChangeEvent:
         return TickerChangeEvent(**d)
 
 
-@modelclass
+@dataclass
 class TickerChangeResults:
     name: str
     composite_figi: str

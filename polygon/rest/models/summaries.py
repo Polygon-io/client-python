@@ -1,10 +1,10 @@
-from sqlite3 import Timestamp
+from dataclasses import dataclass
 from typing import Optional
-from ...modelclass import modelclass
+
 from .tickers import Branding
 
 
-@modelclass
+@dataclass
 class Session:
     "Contains Session data for the summaries endpoint."
     change: Optional[float] = None
@@ -25,7 +25,7 @@ class Session:
         return Session(**d)
 
 
-@modelclass
+@dataclass
 class Options:
     "Contains options data for the summaries endpoint"
     contract_type: Optional[str] = None
@@ -40,7 +40,7 @@ class Options:
         return Options(**d)
 
 
-@modelclass
+@dataclass
 class SummaryResult:
     "Contains summary result data for a list of tickers"
     price: Optional[float] = None

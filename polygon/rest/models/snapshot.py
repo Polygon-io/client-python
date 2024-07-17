@@ -1,11 +1,12 @@
-from typing import Optional, List, Dict
+from dataclasses import dataclass
+from typing import Dict, List, Optional
+
 from .aggs import Agg
 from .quotes import LastQuote
 from .trades import LastTrade
-from ...modelclass import modelclass
 
 
-@modelclass
+@dataclass
 class MinuteSnapshot:
     "Most recent minute bar."
     accumulated_volume: Optional[float] = None
@@ -35,7 +36,7 @@ class MinuteSnapshot:
         )
 
 
-@modelclass
+@dataclass
 class IndicesSession:
     "Contains data for the most recent daily bar in an options contract."
     change: Optional[float] = None
@@ -51,7 +52,7 @@ class IndicesSession:
         return IndicesSession(**d)
 
 
-@modelclass
+@dataclass
 class IndicesSnapshot:
     value: Optional[float] = None
     name: Optional[str] = None
@@ -78,7 +79,7 @@ class IndicesSnapshot:
         )
 
 
-@modelclass
+@dataclass
 class TickerSnapshot:
     "Contains the most up-to-date market data for all traded ticker symbols."
     day: Optional[Agg] = None
@@ -112,7 +113,7 @@ class TickerSnapshot:
         )
 
 
-@modelclass
+@dataclass
 class DayOptionContractSnapshot:
     "Contains data for the most recent daily bar in an options contract."
     change: Optional[float] = None
@@ -131,7 +132,7 @@ class DayOptionContractSnapshot:
         return DayOptionContractSnapshot(**d)
 
 
-@modelclass
+@dataclass
 class OptionDetails:
     "Contains details for an options contract."
     contract_type: Optional[str] = None
@@ -146,7 +147,7 @@ class OptionDetails:
         return OptionDetails(**d)
 
 
-@modelclass
+@dataclass
 class LastQuoteOptionContractSnapshot:
     "Contains data for the most recent quote in an options contract."
     ask: Optional[float] = None
@@ -162,7 +163,7 @@ class LastQuoteOptionContractSnapshot:
         return LastQuoteOptionContractSnapshot(**d)
 
 
-@modelclass
+@dataclass
 class LastTradeOptionContractSnapshot:
     "Contains data for the most recent trade for an options contract."
     price: Optional[float] = None
@@ -177,7 +178,7 @@ class LastTradeOptionContractSnapshot:
         return LastTradeOptionContractSnapshot(**d)
 
 
-@modelclass
+@dataclass
 class Greeks:
     "Contains data for the greeks in an options contract."
     delta: Optional[float] = None
@@ -190,7 +191,7 @@ class Greeks:
         return Greeks(**d)
 
 
-@modelclass
+@dataclass
 class UnderlyingAsset:
     "Contains data for the underlying stock in an options contract."
     change_to_break_even: Optional[float] = None
@@ -205,7 +206,7 @@ class UnderlyingAsset:
         return UnderlyingAsset(**d)
 
 
-@modelclass
+@dataclass
 class OptionContractSnapshot:
     "Contains data for the snapshot of an option contract of a stock equity."
     break_even_price: Optional[float] = None
@@ -253,7 +254,7 @@ class OptionContractSnapshot:
         )
 
 
-@modelclass
+@dataclass
 class OrderBookQuote:
     "Contains data for a book bid or ask."
     price: Optional[float] = None
@@ -267,7 +268,7 @@ class OrderBookQuote:
         )
 
 
-@modelclass
+@dataclass
 class SnapshotTickerFullBook:
     "Contains the current level 2 book of a single ticker. This is the combined book from all of the exchanges."
     ticker: Optional[str] = None
@@ -299,7 +300,7 @@ class SnapshotTickerFullBook:
         )
 
 
-@modelclass
+@dataclass
 class UniversalSnapshotSession:
     """Contains data about the most recent trading session for an asset."""
 
@@ -322,7 +323,7 @@ class UniversalSnapshotSession:
         return UniversalSnapshotSession(**d)
 
 
-@modelclass
+@dataclass
 class UniversalSnapshotLastQuote:
     """Contains the most recent quote for an asset."""
 
@@ -340,7 +341,7 @@ class UniversalSnapshotLastQuote:
         return UniversalSnapshotLastQuote(**d)
 
 
-@modelclass
+@dataclass
 class UniversalSnapshotLastTrade:
     """Contains the most recent trade for an asset."""
 
@@ -359,7 +360,7 @@ class UniversalSnapshotLastTrade:
         return UniversalSnapshotLastTrade(**d)
 
 
-@modelclass
+@dataclass
 class UniversalSnapshotUnderlyingAsset:
     """Contains data for the underlying stock in an options contract."""
 
@@ -375,7 +376,7 @@ class UniversalSnapshotUnderlyingAsset:
         return UniversalSnapshotUnderlyingAsset(**d)
 
 
-@modelclass
+@dataclass
 class UniversalSnapshotDetails:
     """Contains details for an options contract."""
 
@@ -384,13 +385,14 @@ class UniversalSnapshotDetails:
     expiration_date: Optional[str] = None
     shares_per_contract: Optional[float] = None
     strike_price: Optional[float] = None
+    underlying_ticker: Optional[str] = None
 
     @staticmethod
     def from_dict(d):
         return UniversalSnapshotDetails(**d)
 
 
-@modelclass
+@dataclass
 class UniversalSnapshot:
     """Contains snapshot data for an asset."""
 

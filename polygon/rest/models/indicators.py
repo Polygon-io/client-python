@@ -1,10 +1,10 @@
-from sqlite3 import Timestamp
-from typing import Optional, Any, Dict, List, Union
-from ...modelclass import modelclass
+from dataclasses import dataclass
+from typing import List, Optional
+
 from .aggs import Agg
 
 
-@modelclass
+@dataclass
 class IndicatorValue:
     "Contains one datum for indicators with a single value."
     timestamp: Optional[int] = None
@@ -18,7 +18,7 @@ class IndicatorValue:
         )
 
 
-@modelclass
+@dataclass
 class MACDIndicatorValue:
     "Contains one datum for all MACD values."
     timestamp: Optional[int] = None
@@ -36,7 +36,7 @@ class MACDIndicatorValue:
         )
 
 
-@modelclass
+@dataclass
 class IndicatorUnderlying:
     "Contains the URL to call to get the aggs used for building the indicator."
     url: Optional[str] = None
@@ -50,7 +50,7 @@ class IndicatorUnderlying:
         )
 
 
-@modelclass
+@dataclass
 class SingleIndicatorResults:
     "Contains indicator values and Underlying."
     values: Optional[List[IndicatorValue]] = None
@@ -69,7 +69,7 @@ EMAIndicatorResults = SingleIndicatorResults
 RSIIndicatorResults = SingleIndicatorResults
 
 
-@modelclass
+@dataclass
 class MACDIndicatorResults:
     "Contains indicator values and Underlying."
     values: Optional[List[MACDIndicatorValue]] = None
