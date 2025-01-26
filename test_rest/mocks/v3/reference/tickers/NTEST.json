@@ -1,0 +1,18 @@
+{
+    "request_id": "6bd208cd1467a602bdca4c169a6f7805",
+    "results": {
+        "ticker": "NTEST",
+        "name": "NYSE Test Ticker",
+        "market": "stocks",
+        "locale": "us",
+        "primary_exchange": "XNYS",
+        "type": "CS",
+        "active": true,
+        "currency_name": "usd",
+        "address": {},
+        "ticker_root": "NTEST",
+        "is_test": true,
+        "round_lot": 100
+    },
+    "status": "OK"
+}

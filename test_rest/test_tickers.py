@@ -110,6 +110,7 @@ class TickersTest(BaseTest):
             currency_name="usd",
             delisted_utc=None,
             description="Apple designs a wide variety of consumer electronic devices, including smartphones (iPhone), tablets (iPad), PCs (Mac), smartwatches (Apple Watch), AirPods, and TV boxes (Apple TV), among others. The iPhone makes up the majority of Apple's total revenue. In addition, Apple offers its customers a variety of services such as Apple Music, iCloud, Apple Care, Apple TV+, Apple Arcade, Apple Card, and Apple Pay, among others. Apple's products run internally developed software and semiconductors, and the firm is well known for its integration of hardware, software and services. Apple's products are distributed online as well as through company-owned stores and third-party retailers. The company generates roughly 40% of its revenue from the Americas, with the remainder earned internationally.",
+            is_test=None,
             ticker_root="AAPL",
             homepage_url="https://www.apple.com",
             list_date="1980-12-12",
@@ -133,6 +134,24 @@ class TickersTest(BaseTest):
         expected.market_cap = 1916103105630
         details = self.c.get_ticker_details("AAPL", date="2020-10-01")
 
+        self.assertEqual(details, expected)
+
+    def test_get_test_ticker_details(self):
+        details = self.c.get_ticker_details("NTEST")
+        expected = TickerDetails(
+            active=True,
+            is_test=True,
+            address=CompanyAddress(),
+            currency_name="usd",
+            delisted_utc=None,
+            ticker_root="NTEST",
+            locale="us",
+            market="stocks",
+            name="NYSE Test Ticker",
+            primary_exchange="XNYS",
+            ticker="NTEST",
+            type="CS",
+        )
         self.assertEqual(details, expected)
 
     def test_list_ticker_news(self):
